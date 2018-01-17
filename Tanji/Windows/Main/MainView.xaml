@@ -1,0 +1,65 @@
+﻿<Window x:Class="Tanji.Windows.Main.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tanji.Windows.Main"
+        xmlns:connection="clr-namespace:Tanji.Services.Connection"
+        xmlns:injection="clr-namespace:Tanji.Services.Injection"
+        xmlns:toolbox="clr-namespace:Tanji.Services.Toolbox"
+        xmlns:modules="clr-namespace:Tanji.Services.Modules"
+        xmlns:options="clr-namespace:Tanji.Services.Options"
+        mc:Ignorable="d"
+        Title="{Binding Title}"
+        ResizeMode="CanMinimize"
+        UseLayoutRounding="True"
+        SizeToContent="WidthAndHeight"
+        Topmost="{Binding IsAlwaysOnTop}"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TabControl Width="492" Height="337"
+                    Style="{StaticResource TGTabControl}">
+            <TabItem Header="Connection">
+                <connection:ConnectionView/>
+            </TabItem>
+            <TabItem Header="Injection">
+                <injection:InjectionView/>
+            </TabItem>
+            <TabItem Header="Toolbox">
+                <toolbox:ToolboxView/>
+            </TabItem>
+            <TabItem Header="Modules">
+                <modules:ModulesView/>
+            </TabItem>
+            <TabItem Header="Options">
+                <options:OptionsView/>
+            </TabItem>
+        </TabControl>
+        <StatusBar Grid.Row="2"
+                   Background="White"
+                   BorderThickness="0,1,0,0"
+                   BorderBrush="{StaticResource PrimaryBrush}">
+            <StatusBarItem Content="v2.0.0.0"
+                           HorizontalContentAlignment="Center"/>
+            <Separator Width="1"/>
+            <StatusBarItem Content="Schedules: 0/0"
+                           HorizontalContentAlignment="Center"/>
+            <Separator Width="1"/>
+            <StatusBarItem Content="Filters: 0/0"
+                           HorizontalContentAlignment="Center"/>
+            <Separator Width="1"/>
+            <StatusBarItem Content="Modules: 0/0"
+                           HorizontalContentAlignment="Center"/>
+            <Separator Width="1"/>
+            <StatusBarItem Content="GitHub - ArachisH/Tanji"
+                           HorizontalContentAlignment="Center"/>
+        </StatusBar>
+    </Grid>
+</Window>

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <TrimUnusedDependencies>true</TrimUnusedDependencies>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C47F4DAB-ED63-4E36-AA49-A843EFE6D0C8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tanji</RootNamespace>
+    <AssemblyName>Tanji</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <AssemblyVersionSettings>None.IncrementOnDemandWithReset.None.Increment</AssemblyVersionSettings>
+    <AssemblyFileVersionSettings>None.IncrementOnDemandWithReset.None.None</AssemblyFileVersionSettings>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Tanji_256.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="netstandard" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\BindableToolStripMenuItem.cs" />
+    <Compile Include="Controls\HPacketLogger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\HPacketLogger.Designer.cs">
+      <DependentUpon>HPacketLogger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AsyncCommand.cs" />
+    <Compile Include="Helpers\Converters\BooleanOrConverter.cs" />
+    <Compile Include="Helpers\Converters\EnumerableToStringConverter.cs" />
+    <Compile Include="Helpers\Converters\HotelEndPointConverter.cs" />
+    <Compile Include="Helpers\Converters\InverseBooleanConverter.cs" />
+    <Compile Include="Helpers\MultiConverter.cs" />
+    <Compile Include="Helpers\Command.cs" />
+    <Compile Include="Helpers\ObservableRangeCollection.cs" />
+    <Compile Include="Helpers\SingleConverter.cs" />
+    <Compile Include="Helpers\ObservableObject.cs" />
+    <Compile Include="Network\HConnection.cs" />
+    <Compile Include="Services\Connection\ConnectionView.xaml.cs">
+      <DependentUpon>ConnectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Connection\ConnectionViewModel.cs" />
+    <Compile Include="Services\IHaltable.cs" />
+    <Compile Include="Services\Injection\Constructer\ConstructerView.xaml.cs">
+      <DependentUpon>ConstructerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Injection\Constructer\ConstructerViewModel.cs" />
+    <Compile Include="Services\Injection\Constructer\Models\Chunk.cs" />
+    <Compile Include="Services\Injection\Filter\FilterView.xaml.cs">
+      <DependentUpon>FilterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Injection\Filter\FilterViewModel.cs" />
+    <Compile Include="Services\Injection\InjectionView.xaml.cs">
+      <DependentUpon>InjectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Injection\InjectionViewModel.cs" />
+    <Compile Include="Services\Injection\Inspector\InspectorView.xaml.cs">
+      <DependentUpon>InspectorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Injection\Inspector\InspectorViewModel.cs" />
+    <Compile Include="Services\Injection\Scheduler\SchedulerView.xaml.cs">
+      <DependentUpon>SchedulerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Injection\Scheduler\SchedulerViewModel.cs" />
+    <Compile Include="Services\IReceiver.cs" />
+    <Compile Include="Services\ISynchronizer.cs" />
+    <Compile Include="Services\Modules\Models\ModuleInfo.cs" />
+    <Compile Include="Services\Modules\ModulesView.xaml.cs">
+      <DependentUpon>ModulesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Modules\ModulesViewModel.cs" />
+    <Compile Include="Services\Options\OptionsView.xaml.cs">
+      <DependentUpon>OptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Options\OptionsViewModel.cs" />
+    <Compile Include="Services\Toolbox\ToolboxView.xaml.cs">
+      <DependentUpon>ToolboxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Toolbox\ToolboxViewModel.cs" />
+    <Compile Include="Services\IMaster.cs" />
+    <Compile Include="Windows\Logger\LoggerView.xaml.cs">
+      <DependentUpon>LoggerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Logger\LoggerViewModel.cs" />
+    <Compile Include="Windows\Main\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Main\MainViewModel.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Services\Connection\ConnectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Services\Injection\Constructer\ConstructerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Services\Injection\Filter\FilterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Services\Injection\InjectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Services\Injection\Inspector\InspectorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Services\Injection\Scheduler\SchedulerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Services\Modules\ModulesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Services\Options\OptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Services\Toolbox\ToolboxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Logger\LoggerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Main\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Controls\HPacketLogger.resx">
+      <DependentUpon>HPacketLogger.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="Hashes.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tanji_256.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Eavesdrop\Eavesdrop\Eavesdrop.csproj">
+      <Project>{29ab109a-8343-45a9-a91e-0f54211fdd45}</Project>
+      <Name>Eavesdrop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Flazzy\Flazzy\Flazzy.csproj">
+      <Project>{90fcaa7e-2ad0-423d-9935-fe415835cdb0}</Project>
+      <Name>Flazzy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sulakore\Sulakore\Sulakore.csproj">
+      <Project>{23ea9651-b1f8-4aca-97fb-9f37ad439ee2}</Project>
+      <Name>Sulakore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tangine\Tangine.csproj">
+      <Project>{f3199201-061d-4df2-a00e-61ba3b754e3e}</Project>
+      <Name>Tangine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

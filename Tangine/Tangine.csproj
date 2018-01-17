@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net471</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <LanguageTargets>$(MSBuildExtensionsPath)\$(VisualStudioVersion)\Bin\Microsoft.CSharp.targets</LanguageTargets>
+
+    <GlobalFlazzyProject>..\..\Flazzy\Flazzy\Flazzy.csproj</GlobalFlazzyProject>
+    <LocalFlazzyProject>$(SolutionDir)Submodules\Flazzy\Flazzy\Flazzy.csproj</LocalFlazzyProject>
+
+    <GlobalSulakoreProject>..\..\Sulakore\Sulakore\Sulakore.csproj</GlobalSulakoreProject>
+    <LocalSulakoreProject>$(SolutionDir)Submodules\Sulakore\Sulakore\Sulakore.csproj</LocalSulakoreProject>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ShouldCreateLogs>False</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <AssemblyVersionSettings>None.IncrementOnDemandWithReset.None.None</AssemblyVersionSettings>
+    <AssemblyFileVersionSettings>None.IncrementOnDemandWithReset.None.None</AssemblyFileVersionSettings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>RELEASE;NET471</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\*.*" />
+
+    <Page Include="**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />
+    <Compile Update="**\*.xaml.cs" SubType="Designer" DependentUpon="%(Filename)" />
+
+    <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
+    <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Condition="Exists($(LocalFlazzyProject))" Include="$(LocalFlazzyProject)" />
+    <ProjectReference Condition="Exists($(LocalSulakoreProject))" Include="$(LocalSulakoreProject)" />
+    <ProjectReference Include="..\..\Flazzy\Flazzy\Flazzy.csproj" />
+    <ProjectReference Include="..\..\Sulakore\Sulakore\Sulakore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="netstandard" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+
+</Project>

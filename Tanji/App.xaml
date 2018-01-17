@@ -1,0 +1,18 @@
+﻿<Application x:Class="Tanji.App"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             ShutdownMode="OnMainWindowClose"
+             StartupUri="Windows/Main/MainView.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <sys:Double x:Key="T_PageWidth">486</sys:Double>
+            <sys:Double x:Key="T_PageHeight">302</sys:Double>
+            <sys:Double x:Key="T_SubPageWidth">400</sys:Double>
+            <sys:Double x:Key="T_SubPageHeight">269</sys:Double>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Tangine;component/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

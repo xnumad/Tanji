@@ -1,0 +1,528 @@
+<ResourceDictionary  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:controls="clr-namespace:Tangine.Controls"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <Color x:Key="PrimaryColor">#F33F3F</Color>
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
+
+    <Color x:Key="PrimaryDarkColor">#C33333</Color>
+    <SolidColorBrush x:Key="PrimaryDarkBrush" Color="{StaticResource PrimaryDarkColor}" />
+
+    <Color x:Key="PrimaryLightColor">#AFF33F3F</Color>
+    <SolidColorBrush x:Key="PrimaryLightBrush" Color="{StaticResource PrimaryLightColor}" />
+
+    <Style TargetType="controls:TGLabelBox">
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:TGLabelBox">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="1" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Foreground="Black"
+                                   Grid.Column="1"
+                                   Margin="0,0,0,0"
+                                   TextAlignment="Center"
+                                   Text="{TemplateBinding Title}"
+                                   Width="{TemplateBinding TitleWidth}" />
+                        <Border x:Name="Line"
+                                Grid.Column="3"
+                                BorderThickness="1"
+                                BorderBrush="{StaticResource PrimaryBrush}" />
+                        <Border x:Name="Border"
+                                Grid.Column="5"
+                                BorderThickness="1"
+                                BorderBrush="#ABADB3">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          Background="{TemplateBinding Background}"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused"
+                                           Value="False" />
+                                <Condition Property="IsMouseOver"
+                                           Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetName="Border">
+                                        <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                        Duration="0:0:0.2"
+                                                        To="#7EB4EA" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetName="Border">
+                                        <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                        Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused"
+                                           Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="Border"
+                                                        Storyboard.TargetProperty="BorderBrush.Color"
+                                                        Duration="0:0:0.2"
+                                                        To="#569DE5" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="Border"
+                                                        Storyboard.TargetProperty="BorderBrush.Color"
+                                                        Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                        <Trigger Property="IsReadOnly"
+                                 Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+                                                        Duration="0:0:0.2"
+                                                        To="DarkGray" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+                                                        Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TGLabel" TargetType="Label">
+        <Setter Property="IsEnabled"
+                Value="False" />
+        <Setter Property="BorderBrush"
+                Value="{StaticResource PrimaryBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Label">
+                    <Grid>
+                        <Border x:Name="Border"
+                                BorderThickness="1,0,1,0"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}" />
+                        <ContentPresenter Margin="0,0,0,2"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Center" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled"
+                                 Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard AutoReverse="True"
+                                                RepeatBehavior="Forever"
+                                                Storyboard.TargetName="Border"
+                                                Storyboard.TargetProperty="Margin">
+                                        <ThicknessAnimation Duration="0:0:0.30"
+                                                            To="0,8,0,8" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetName="Border"
+                                                Storyboard.TargetProperty="Margin">
+                                        <ThicknessAnimation Duration="0" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TGButton" TargetType="Button">
+        <Style.Resources>
+            <DropShadowEffect x:Key="EnabledEffect"
+                              ShadowDepth="2"
+                              Color="Black"
+                              Opacity="0.6"
+                              BlurRadius="4"
+                              Direction="315" />
+            <DropShadowEffect x:Key="DisabledEffect"
+                              ShadowDepth="1"
+                              Opacity="0.3"
+                              BlurRadius="1" />
+        </Style.Resources>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Effect" Value="{StaticResource EnabledEffect}"/>
+        <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryDarkBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter Margin="0,0,0,2"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Foreground"
+                                    Value="#838383" />
+                            <Setter Property="Background"
+                                    Value="#F4F4F4" />
+                            <Setter Property="BorderBrush"
+                                    Value="#ADB2B5" />
+                            <Setter Property="Effect"
+                                    Value="{StaticResource DisabledEffect}" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled"
+                                           Value="True" />
+                                <Condition Property="IsMouseOver"
+                                           Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetProperty="Effect.Opacity">
+                                        <DoubleAnimation Duration="0:0:0.2"
+                                                         To="0.4" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetProperty="Effect.Opacity">
+                                        <DoubleAnimation Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled"
+                                           Value="True" />
+                                <Condition Property="IsPressed"
+                                           Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetProperty="Effect.Opacity">
+                                        <DoubleAnimation Duration="0:0:0.05"
+                                                         To="0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetProperty="Effect.Opacity">
+                                        <DoubleAnimation Duration="0:0:0.05" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TGTabControl" TargetType="TabControl">
+        <Style.Resources>
+            <Style x:Key="TGTopTabItem" TargetType="TabItem">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TabItem">
+                            <Grid Background="{TemplateBinding Background}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="6" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="3" />
+                                    <RowDefinition Height="1" />
+                                </Grid.RowDefinitions>
+                                <ContentPresenter ContentSource="Header"
+                                                  Grid.Row="1"
+                                                  HorizontalAlignment="Center" />
+                                <Border x:Name="Line"
+                                        Grid.Row="3"
+                                        BorderThickness="1"
+                                        BorderBrush="DarkGray"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsSelected" Value="False" />
+                                        <Condition Property="IsMouseOver" Value="True" />
+                                    </MultiTrigger.Conditions>
+                                    <MultiTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard Storyboard.TargetName="Line">
+                                                <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                                    Duration="0:0:0.24"
+                                                                    To="{StaticResource PrimaryColor}"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </MultiTrigger.EnterActions>
+                                    <MultiTrigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard Storyboard.TargetName="Line">
+                                                <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                                Duration="0:0:0.24" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </MultiTrigger.ExitActions>
+                                </MultiTrigger>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard Storyboard.TargetName="Line">
+                                                <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                                    Duration="0:0:0.18"
+                                                                    To="{StaticResource PrimaryColor}" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard Storyboard.TargetName="Line">
+                                                <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                                Duration="0:0:0.18" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="TGLeftTabItem"
+                   TargetType="TabItem">
+                <Setter Property="Background"
+                        Value="White" />
+            </Style>
+            <Style x:Key="TGRightTabItem" TargetType="TabItem">
+                <Setter Property="Background" Value="White" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TabItem">
+                            <Grid Background="{TemplateBinding Background}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="6" />
+                                    <RowDefinition Height="16" />
+                                    <RowDefinition Height="6" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1" />
+                                    <ColumnDefinition Width="6" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="9" />
+                                </Grid.ColumnDefinitions>
+                                <Border x:Name="Line"
+                                        Grid.Row="1"
+                                        BorderThickness="1"
+                                        BorderBrush="DarkGray" />
+                                <ContentPresenter ContentSource="Header"
+                                                  VerticalAlignment="Center"
+                                                  Grid.Column="2"
+                                                  Grid.Row="1" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsSelected"
+                                                   Value="False" />
+                                        <Condition Property="IsMouseOver"
+                                                   Value="True" />
+                                    </MultiTrigger.Conditions>
+                                    <MultiTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard Storyboard.TargetName="Line">
+                                                <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                                Duration="0:0:0.18"
+                                                                To="{StaticResource PrimaryLightColor}" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </MultiTrigger.EnterActions>
+                                    <MultiTrigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard Storyboard.TargetName="Line">
+                                                <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                                Duration="0:0:0.18" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </MultiTrigger.ExitActions>
+                                </MultiTrigger>
+                                <Trigger Property="IsSelected"
+                                         Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard Storyboard.TargetName="Line">
+                                                <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                                Duration="0:0:0.18"
+                                                                To="{StaticResource PrimaryColor}" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard Storyboard.TargetName="Line">
+                                                <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                                Duration="0:0:0.18" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="TGBottomTabItem"
+                   TargetType="TabItem">
+                <Setter Property="Background"
+                        Value="White" />
+            </Style>
+            <ControlTemplate x:Key="TGVerticalTabs" TargetType="TabControl">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2" />
+                    </Grid.ColumnDefinitions>
+                    <UniformGrid x:Name="ItemHost"
+                                     Rows="1"
+                                     Grid.Column="1" 
+                                     IsItemsHost="True" />
+                    <ContentPresenter ContentSource="SelectedContent"
+                                          Grid.Row="1"
+                                          Grid.ColumnSpan="3"
+                                          Margin="{TemplateBinding Padding}"/>
+                </Grid>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="TabStripPlacement"
+                             Value="Top">
+                        <Setter Property="Padding"
+                                Value="3,6,3,3" />
+                        <Setter TargetName="ItemHost"
+                                Property="Grid.Row"
+                                Value="0" />
+                    </Trigger>
+                    <Trigger Property="TabStripPlacement"
+                             Value="Bottom">
+                        <Setter Property="Padding"
+                                Value="3,3,3,6" />
+                        <Setter TargetName="ItemHost"
+                                Property="Grid.Row"
+                                Value="2" />
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+            <ControlTemplate x:Key="TGHorizontalTabs" TargetType="TabControl">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="3" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="ItemHost"
+                                Grid.Row="1"
+                                IsItemsHost="True" />
+                    <ContentPresenter ContentSource="SelectedContent"
+                                      Grid.Column="1"
+                                      Grid.RowSpan="3"
+                                      Margin="{TemplateBinding Padding}" />
+                </Grid>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="TabStripPlacement"
+                             Value="Left">
+                        <Setter Property="Padding"
+                                Value="6,3,3,3" />
+                        <Setter TargetName="ItemHost"
+                                Property="Grid.Column"
+                                Value="0" />
+                    </Trigger>
+                    <Trigger Property="TabStripPlacement"
+                             Value="Right">
+                        <Setter Property="Padding"
+                                Value="3,3,6,3" />
+                        <Setter TargetName="ItemHost"
+                                Property="Grid.Column"
+                                Value="2" />
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </Style.Resources>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Style.Triggers>
+            <Trigger Property="TabStripPlacement"
+                     Value="Left">
+                <Setter Property="Template"
+                        Value="{StaticResource TGHorizontalTabs}" />
+                <Setter Property="ItemContainerStyle"
+                        Value="{StaticResource TGLeftTabItem}" />
+            </Trigger>
+            <Trigger Property="TabStripPlacement"
+                     Value="Right">
+                <Setter Property="Template"
+                        Value="{StaticResource TGHorizontalTabs}" />
+                <Setter Property="ItemContainerStyle"
+                        Value="{DynamicResource TGRightTabItem}" />
+            </Trigger>
+            <Trigger Property="TabStripPlacement"
+                     Value="Top">
+                <Setter Property="Template"
+                        Value="{StaticResource TGVerticalTabs}" />
+                <Setter Property="ItemContainerStyle"
+                        Value="{DynamicResource TGTopTabItem}" />
+            </Trigger>
+            <Trigger Property="TabStripPlacement"
+                     Value="Bottom">
+                <Setter Property="Template"
+                        Value="{StaticResource TGVerticalTabs}" />
+                <Setter Property="ItemContainerStyle"
+                        Value="{DynamicResource TGBottomTabItem}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>
