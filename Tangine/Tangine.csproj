@@ -4,12 +4,6 @@
     <TargetFramework>net471</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LanguageTargets>$(MSBuildExtensionsPath)\$(VisualStudioVersion)\Bin\Microsoft.CSharp.targets</LanguageTargets>
-
-    <GlobalFlazzyProject>..\..\Flazzy\Flazzy\Flazzy.csproj</GlobalFlazzyProject>
-    <LocalFlazzyProject>$(SolutionDir)Submodules\Flazzy\Flazzy\Flazzy.csproj</LocalFlazzyProject>
-
-    <GlobalSulakoreProject>..\..\Sulakore\Sulakore\Sulakore.csproj</GlobalSulakoreProject>
-    <LocalSulakoreProject>$(SolutionDir)Submodules\Sulakore\Sulakore\Sulakore.csproj</LocalSulakoreProject>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -27,20 +21,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Resource Include="assets\*.*" />
+    <ProjectReference Include="..\Submodules\Flazzy\Flazzy\Flazzy.csproj" />
+    <ProjectReference Include="..\Submodules\Sulakore\Sulakore\Sulakore.csproj" />
 
+    <Resource Include="assets\*.*" />
     <Page Include="**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />
     <Compile Update="**\*.xaml.cs" SubType="Designer" DependentUpon="%(Filename)" />
 
     <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
     <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Condition="Exists($(LocalFlazzyProject))" Include="$(LocalFlazzyProject)" />
-    <ProjectReference Condition="Exists($(LocalSulakoreProject))" Include="$(LocalSulakoreProject)" />
-    <ProjectReference Include="..\..\Flazzy\Flazzy\Flazzy.csproj" />
-    <ProjectReference Include="..\..\Sulakore\Sulakore\Sulakore.csproj" />
   </ItemGroup>
 
   <ItemGroup>

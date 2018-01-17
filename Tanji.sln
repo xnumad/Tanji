@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tangine", "Tangine\Tangine.csproj", "{F3199201-061D-4DF2-A00E-61BA3B754E3E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tanji", "Tanji\Tanji.csproj", "{C47F4DAB-ED63-4E36-AA49-A843EFE6D0C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eavesdrop", "..\Eavesdrop\Eavesdrop\Eavesdrop.csproj", "{29AB109A-8343-45A9-A91E-0F54211FDD45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eavesdrop", "Submodules\Eavesdrop\Eavesdrop\Eavesdrop.csproj", "{29AB109A-8343-45A9-A91E-0F54211FDD45}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flazzy", "..\Flazzy\Flazzy\Flazzy.csproj", "{90FCAA7E-2AD0-423D-9935-FE415835CDB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flazzy", "Submodules\Flazzy\Flazzy\Flazzy.csproj", "{B1ABC9AB-6DEF-4F1E-AA0D-537D251D9872}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sulakore", "..\Sulakore\Sulakore\Sulakore.csproj", "{23EA9651-B1F8-4ACA-97FB-9F37AD439EE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sulakore", "Submodules\Sulakore\Sulakore\Sulakore.csproj", "{D0738052-ACF6-49F3-A2B4-AEE651D1C2FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{29AB109A-8343-45A9-A91E-0F54211FDD45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29AB109A-8343-45A9-A91E-0F54211FDD45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29AB109A-8343-45A9-A91E-0F54211FDD45}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90FCAA7E-2AD0-423D-9935-FE415835CDB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90FCAA7E-2AD0-423D-9935-FE415835CDB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90FCAA7E-2AD0-423D-9935-FE415835CDB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90FCAA7E-2AD0-423D-9935-FE415835CDB0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23EA9651-B1F8-4ACA-97FB-9F37AD439EE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23EA9651-B1F8-4ACA-97FB-9F37AD439EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23EA9651-B1F8-4ACA-97FB-9F37AD439EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23EA9651-B1F8-4ACA-97FB-9F37AD439EE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1ABC9AB-6DEF-4F1E-AA0D-537D251D9872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1ABC9AB-6DEF-4F1E-AA0D-537D251D9872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1ABC9AB-6DEF-4F1E-AA0D-537D251D9872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1ABC9AB-6DEF-4F1E-AA0D-537D251D9872}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0738052-ACF6-49F3-A2B4-AEE651D1C2FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0738052-ACF6-49F3-A2B4-AEE651D1C2FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0738052-ACF6-49F3-A2B4-AEE651D1C2FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0738052-ACF6-49F3-A2B4-AEE651D1C2FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

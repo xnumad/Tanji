@@ -240,16 +240,16 @@
     <Resource Include="Resources\Tanji_256.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Eavesdrop\Eavesdrop\Eavesdrop.csproj">
+    <ProjectReference Include="..\Submodules\Eavesdrop\Eavesdrop\Eavesdrop.csproj">
       <Project>{29ab109a-8343-45a9-a91e-0f54211fdd45}</Project>
       <Name>Eavesdrop</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Flazzy\Flazzy\Flazzy.csproj">
-      <Project>{90fcaa7e-2ad0-423d-9935-fe415835cdb0}</Project>
+    <ProjectReference Include="..\Submodules\Flazzy\Flazzy\Flazzy.csproj">
+      <Project>{b1abc9ab-6def-4f1e-aa0d-537d251d9872}</Project>
       <Name>Flazzy</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Sulakore\Sulakore\Sulakore.csproj">
-      <Project>{23ea9651-b1f8-4aca-97fb-9f37ad439ee2}</Project>
+    <ProjectReference Include="..\Submodules\Sulakore\Sulakore\Sulakore.csproj">
+      <Project>{d0738052-acf6-49f3-a2b4-aee651d1c2fb}</Project>
       <Name>Sulakore</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tangine\Tangine.csproj">
