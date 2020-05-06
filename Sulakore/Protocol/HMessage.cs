@@ -391,11 +391,24 @@ namespace Sulakore.Protocol
         public static string ToString(byte[] data)
         {
             string result = Encoding.Default.GetString(data);
-            for (int i = 0; i <= 13; i++)
+
+            //Remember on changes, the next two for loops are done in reverse in the ToBytes method
+
+            //https://en.wikipedia.org/wiki/C0_and_C1_control_codes#Basic_ASCII_control_codes
+            for (int i = 0; i <= 31; i++)
             {
                 result = result.Replace(
                     ((char)i).ToString(), "[" + i + "]");
             }
+
+            //https://en.wikipedia.org/wiki/Windows-1252#Character_set
+            //https://en.wikipedia.org/wiki/ISO/IEC_8859-1#Code_page_layout
+            for (int i = 127; i <= 160; i++)
+            {
+                result = result.Replace(
+                    ((char)i).ToString(), "[" + i + "]");
+            }
+
             return result;
         }
 
@@ -409,7 +422,14 @@ namespace Sulakore.Protocol
         }
         public static byte[] ToBytes(string packet)
         {
-            for (int i = 0; i <= 13; i++)
+            //See ToString method for references for the next two for loops
+            for (int i = 0; i <= 31; i++)
+            {
+                packet = packet.Replace(
+                    "[" + i + "]", ((char)i).ToString());
+            }
+
+            for (int i = 127; i <= 160; i++)
             {
                 packet = packet.Replace(
                     "[" + i + "]", ((char)i).ToString());
